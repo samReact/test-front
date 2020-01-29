@@ -1,7 +1,7 @@
 <h1 align="center">OptiSantis Test Développeur FrontEnd</h1>
 
 <p align="center">
-    <a href="#prerequis">Prérequis</a> • <a href="#composants">Composants</a> • <a href="#bonus">Bonus</a> • <a href="#final">Final</a>
+    <a href="#prérequis">Prérequis</a> • <a href="#composants">Composants</a> • <a href="#bonus">Bonus</a> • <a href="#final">Final</a>
 </p>
 
 <div align="center">
@@ -61,7 +61,7 @@ La carte a deux faces :
 
 ![Button reset](/assets/images/.docs/components/Reset.png)
 
-Un bouton permettant de réinitialiser la grille et de remélanger les paires, réinitialise le `Timer` et le `Compteur`.
+Un `bouton` permettant de réinitialiser la grille et de remélanger les paires, réinitialise le `Timer` et le `Compteur`.
 
 **Action :** 
 * `click` -> Réinitialise la partie en cours. Si aucune partie n'est en cours, alors le bouton doit être désactivé.
