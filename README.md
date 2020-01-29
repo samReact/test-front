@@ -1,7 +1,7 @@
 <h1 align="center">OptiSantis Test Développeur FrontEnd</h1>
 
 <p align="center">
-    <a href="#prérequis">Prérequis</a> • <a href="#composants">Composants</a> • <a href="#bonus">Bonus</a> • <a href="#final">Final</a>
+    <a href="#prérequis">Prérequis</a> • <a href="#déroulement">Déroulement</a> • <a href="#composants">Composants</a> • <a href="#bonus">Bonus</a>
 </p>
 
 <div align="center">
@@ -11,6 +11,13 @@
 Pour tester les compétences `React/Typescript` et d'intégration `HTML/CSS/SASS`, vous développerez un jeux de type [Memory](https://fr.wikipedia.org/wiki/Memory_(jeu)).
 
 > 🚨 Les librairies de composants tel que `Bootstrap`, `MaterialUI` sont déconseillées. Pour le reste vous êtes libre d'utiliser les outils qui vous paraissent les plus adaptés.
+
+## Déroulement
+
+* ⬆️ Demande de `pull-request` ou `clone` repo
+* 🧑‍💻 Coding time - _1/2 journée à 1 jours_
+* 🔀 Demande de `merge-request`
+* ✅ Validation ou 🚫 Refus
 
 ## Prérequis
 
@@ -69,7 +76,3 @@ Un `bouton` permettant de réinitialiser la grille et de remélanger les paires,
 ## Bonus
 
 Dans un soucis d'accessibilité, la grille doit être navigable avec le clavier et les carte peuvent être actionner avec les touches `entrée` et `espace`.
-
-## Final
-
-Pour nous envoyer le résultat, il vous suffira de créer une `merge-request` sur le [repo Github](https://github.com/optisantis/test-front).
