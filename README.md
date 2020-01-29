@@ -28,20 +28,9 @@ Une grille `4x4` qui a pour contenu les cartes du jeux.
 
 ### Carte
 
-<div style="display: flex;">
-    <div>
-        <img src="./assets/images/.docs/components/Card/Recto.jpg" style="display: block;">
-        <div align="center">Idle</div>
-    </div>
-    <div>
-        <img src="./assets/images/.docs/components/Card/Verso.jpg" style="display: block;">
-        <div align="center">Checked</div>
-    </div>
-    <div>
-        <img src="./assets/images/.docs/components/Card/Found.jpg" style="display: block;">
-        <div align="center">Disabled</div>
-    </div>
-</div>
+| Idle  | Checked  | Disabled  |
+|:-:|:-:|:-:|
+| ![](/assets/images/.docs/components/Card/Recto.jpg) | ![](/assets/images/.docs/components/Card/Verso.jpg) | ![](/assets/images/.docs/components/Card/Found.jpg) |
 
 **Faces :**
 La carte a deux faces : 
