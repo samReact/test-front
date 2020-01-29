@@ -1,7 +1,7 @@
 <h1 align="center">OptiSantis Test Développeur FrontEnd</h1>
 
 <p align="center">
-    <a href="#prerequis">Prérequis</a> • <a href="#les-composants">Composants</a> • <a href="#bonus">Bonus</a> • <a href="#final">Final</a>
+    <a href="#prerequis">Prérequis</a> • <a href="#composants">Composants</a> • <a href="#bonus">Bonus</a> • <a href="#final">Final</a>
 </p>
 
 <div align="center">
@@ -10,14 +10,13 @@
 
 Pour tester les compétences `React/Typescript` et d'intégration `HTML/CSS/SASS`, vous développerez un jeux de type [Memory](https://fr.wikipedia.org/wiki/Memory_(jeu)).
 
+> 🚨 Les librairies de composants tel que `Bootstrap`, `MaterialUI` sont déconseillées. Pour le reste vous êtes libre d'utiliser les outils qui vous paraissent les plus adaptés.
+
 ## Prérequis
 
 * [React](https://reactjs.org/) - v.16 minimum
 * [Typescript](https://www.typescriptlang.org/)
 * [SCSS](https://sass-lang.com/)
-* Les librairies de composants tel que `Bootstrap`, `MaterialUI` sont déconseillées. Pour le reste vous êtes libre d'utiliser les outils qui vous paraissent les plus adaptés.
-
----
 
 ## Composants
 
@@ -29,15 +28,30 @@ Une grille `4x4` qui a pour contenu les cartes du jeux.
 
 ### Carte
 
-![Carte verso](/assets/images/.docs/components/Card/Recto.jpg)
-![Carte verso](/assets/images/.docs/components/Card/Verso.jpg)
-![Carte verso](/assets/images/.docs/components/Card/Found.jpg)
+<div style="display: flex;">
+    <div>
+        <img src="./assets/images/.docs/components/Card/Recto.jpg" style="display: block;">
+        <div align="center">Idle</div>
+    </div>
+    <div>
+        <img src="./assets/images/.docs/components/Card/Verso.jpg" style="display: block;">
+        <div align="center">Checked</div>
+    </div>
+    <div>
+        <img src="./assets/images/.docs/components/Card/Found.jpg" style="display: block;">
+        <div align="center">Disabled</div>
+    </div>
+</div>
 
+**Faces :**
 La carte a deux faces : 
-* `recto` : background blanc uni,
-* `verso` : une image devant être associée à une paire.
+* `recto` : background
+* `verso` : une image devant être associée à une paire
 
-A l'état initiale la carte ce trouve sur sa face recto.
+**États :**
+* `idle` : La carte n'est pas retourné
+* `checked` : La carte a été cliqué et retourné
+* `disabled` : La carte et sa paire ou été trouvé
 
 **Action :**
 * `click` -> Retourne la carte sur son verso. Si la carte cliqué est la première à être retournée de la partie, alors lancer le `Timer`.
@@ -63,14 +77,10 @@ Un bouton permettant de réinitialiser la grille et de remélanger les paires, r
 **Action :** 
 * `click` -> Réinitialise la partie en cours. Si aucune partie n'est en cours, alors le bouton doit être désactivé.
 
----
-
 ## Bonus
 
 Dans un soucis d'accessibilité, la grille doit être navigable avec le clavier et les carte peuvent être actionner avec les touches `entrée` et `espace`.
 
----
-
 ## Final
 
-Pour nous envoyer le résultat, il vous suffira de créer une `pull-request` sur le repo Github.
+Pour nous envoyer le résultat, il vous suffira de créer une `merge-request` sur le [repo Github](https://github.com/optisantis/test-front).
