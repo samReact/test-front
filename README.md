@@ -14,10 +14,10 @@ Pour tester les compétences `React/Typescript` et d'intégration `HTML/CSS/SASS
 
 ## Déroulement
 
-* ⬆️ Demande de `pull-request` ou `clone` repo
+* ⬆️ `clone` le dépôt
+* ✂️ Créer une branche pour votre test `test/{votre_nom}`
 * 🧑‍💻 Coding time - _1/2 journée à 1 jours_
-* 🔀 Demande de `merge-request`
-* ✅ Validation ou 🚫 Refus
+* 🔀 Demande de `merge-request` - _Nous ferons nos retours, sur le code, grâce à cette MR_
 
 ## Prérequis
 
@@ -75,4 +75,6 @@ Un `bouton` permettant de réinitialiser la grille et de remélanger les paires,
 
 ## Bonus
 
-Dans un soucis d'accessibilité, la grille doit être navigable avec le clavier et les carte peuvent être actionner avec les touches `entrée` et `espace`.
+> 🚨 Cette partie est facultative
+
+Dans un soucis d'accessibilité, la grille doit être navigable avec le clavier et les cartes peuvent être actionner avec les touches `entrée` et `espace`.
