@@ -5,4 +5,5 @@ const rootReducer = combineReducers({
   cards: cardsReducer
 });
 
+export type AppState = ReturnType<typeof rootReducer>;
 export default rootReducer;

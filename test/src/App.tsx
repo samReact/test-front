@@ -1,16 +1,16 @@
 import React from "react";
-import Card from "./components/Card";
 import ResetButton from "./components/ResetButton";
 import Timer from "./components/Timer";
 import Counter from "./components/Counter";
+import CardsWrapper from "./components/CardsWrapper";
 
 const App = () => {
   return (
     <div>
-      <Card />
       <ResetButton />
       <Timer />
       <Counter />
+      <CardsWrapper />
     </div>
   );
 };
