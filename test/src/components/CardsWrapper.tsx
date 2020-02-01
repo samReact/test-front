@@ -5,11 +5,12 @@ import Card from "./Card";
 import { StyledCardsWrapper } from "../styled/style";
 
 const CardsWrapper = () => {
-  const cards = useSelector((state: AppState) => state.cards.cards);
+  let cards = useSelector((state: AppState) => state.cards.cards);
+  cards.sort((a, b) => a.id - b.id);
   return (
     <StyledCardsWrapper>
       {cards.map(card => (
-        <Card key={card.id} source={card.source} />
+        <Card key={card.id} card={card} />
       ))}
     </StyledCardsWrapper>
   );

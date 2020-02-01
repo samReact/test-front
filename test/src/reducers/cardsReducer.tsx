@@ -6,25 +6,26 @@ import Lemon from "../assets/images/lemon.png";
 import Lettuce from "../assets/images/lettuce.png";
 import Onion from "../assets/images/onion.png";
 import Strawberry from "../assets/images/strawberry.png";
+import { CardsActionTypes, UPDATE_CARD_STATUS } from "../actions/types/cards";
 
 const initialState = {
   cards: [
-    { id: 0, source: Apple },
-    { id: 1, source: Banana },
-    { id: 2, source: Avocado },
-    { id: 3, source: Corn },
-    { id: 4, source: Lemon },
-    { id: 5, source: Lettuce },
-    { id: 6, source: Onion },
-    { id: 7, source: Strawberry },
-    { id: 8, source: Apple },
-    { id: 9, source: Banana },
-    { id: 10, source: Avocado },
-    { id: 11, source: Corn },
-    { id: 12, source: Lemon },
-    { id: 13, source: Lettuce },
-    { id: 14, source: Onion },
-    { id: 15, source: Strawberry }
+    { id: 0, source: Apple, status: "idle" },
+    { id: 1, source: Banana, status: "idle" },
+    { id: 2, source: Avocado, status: "idle" },
+    { id: 3, source: Corn, status: "idle" },
+    { id: 4, source: Lemon, status: "idle" },
+    { id: 5, source: Lettuce, status: "idle" },
+    { id: 6, source: Onion, status: "idle" },
+    { id: 7, source: Strawberry, status: "idle" },
+    { id: 8, source: Apple, status: "idle" },
+    { id: 9, source: Banana, status: "idle" },
+    { id: 10, source: Avocado, status: "idle" },
+    { id: 11, source: Corn, status: "idle" },
+    { id: 12, source: Lemon, status: "idle" },
+    { id: 13, source: Lettuce, status: "idle" },
+    { id: 14, source: Onion, status: "idle" },
+    { id: 15, source: Strawberry, status: "idle" }
   ]
 };
 
@@ -35,9 +36,29 @@ function shuffle(array: Array<object>) {
   }
 }
 
-const cardsReducer = (state = initialState, action: object) => {
-  shuffle(state.cards);
-  return { ...state };
+const cardsReducer = (state = initialState, action: CardsActionTypes) => {
+  // shuffle(state.cards);
+  const { type, payload } = action;
+  switch (type) {
+    case UPDATE_CARD_STATUS:
+      let filteredCard = state.cards.filter(card => card.id === payload.id)[0];
+      let filteredCardBis = state.cards.filter(
+        card => card.id !== payload.id && card.source === filteredCard.source
+      )[0];
+      let filteredCards = state.cards.filter(
+        card => card.source !== filteredCard.source
+      );
+      if (filteredCardBis.status === "checked") {
+        filteredCard = { ...filteredCard, status: "disabled" };
+        filteredCardBis = { ...filteredCardBis, status: "disabled" };
+      } else {
+        filteredCard = { ...filteredCard, status: "checked" };
+      }
+      let updatedCards = [...filteredCards, filteredCard, filteredCardBis];
+      return { ...state, cards: updatedCards };
+    default:
+      return state;
+  }
 };
 
 export default cardsReducer;

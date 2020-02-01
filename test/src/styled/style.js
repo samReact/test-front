@@ -3,7 +3,30 @@ import styled from "styled-components";
 export const StyledCard = styled.img`
   height: 80px;
   width: 80px;
-  background-color: #fff;
+  opacity: ${props => {
+    switch (props.status) {
+      case "idle":
+        return 0;
+      case "checked":
+        return 1;
+      case "disabled":
+        return 0.7;
+      default:
+        return 0;
+    }
+  }};
+`;
+export const StyledCardWrapper = styled.div`
+  background-color: ${props => {
+    switch (props.status) {
+      case "disabled":
+        return "#BAD6DC";
+      default:
+        return "#fff";
+    }
+  }};
+  height: 80px;
+  width: 80px;
   border-radius: 8px;
   padding: 2px;
 `;
