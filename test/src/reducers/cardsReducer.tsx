@@ -44,7 +44,6 @@ function shuffle(array: Array<object>) {
 }
 
 const cardsReducer = (state = initialState, action: CardsActionTypes) => {
-  // shuffle(state.cards);
   const { type, payload } = action;
   switch (type) {
     case UPDATE_CARD_STATUS:
