@@ -6,9 +6,14 @@ import Lemon from "../assets/images/lemon.png";
 import Lettuce from "../assets/images/lettuce.png";
 import Onion from "../assets/images/onion.png";
 import Strawberry from "../assets/images/strawberry.png";
-import { CardsActionTypes, UPDATE_CARD_STATUS } from "../actions/types/cards";
+import {
+  CardsActionTypes,
+  UPDATE_CARD_STATUS,
+  RESET_GAME,
+  CardState
+} from "../actions/types/cards";
 
-const initialState = {
+const initialState: CardState = {
   cards: [
     { id: 0, source: Apple, status: "idle" },
     { id: 1, source: Banana, status: "idle" },
@@ -26,7 +31,9 @@ const initialState = {
     { id: 13, source: Lettuce, status: "idle" },
     { id: 14, source: Onion, status: "idle" },
     { id: 15, source: Strawberry, status: "idle" }
-  ]
+  ],
+  counter: 0,
+  localCounter: 0
 };
 
 function shuffle(array: Array<object>) {
@@ -41,9 +48,10 @@ const cardsReducer = (state = initialState, action: CardsActionTypes) => {
   const { type, payload } = action;
   switch (type) {
     case UPDATE_CARD_STATUS:
-      let filteredCard = state.cards.filter(card => card.id === payload.id)[0];
+      let updatedCounter = state.counter;
+      let filteredCard = state.cards.filter(card => card.id === payload?.id)[0];
       let filteredCardBis = state.cards.filter(
-        card => card.id !== payload.id && card.source === filteredCard.source
+        card => card.id !== payload?.id && card.source === filteredCard.source
       )[0];
       let filteredCards = state.cards.filter(
         card => card.source !== filteredCard.source
@@ -54,8 +62,28 @@ const cardsReducer = (state = initialState, action: CardsActionTypes) => {
       } else {
         filteredCard = { ...filteredCard, status: "checked" };
       }
-      let updatedCards = [...filteredCards, filteredCard, filteredCardBis];
-      return { ...state, cards: updatedCards };
+      let updatedCards = [...filteredCards, filteredCard, filteredCardBis].sort(
+        (a, b) => a.id - b.id
+      );
+      let oddResult = state.localCounter % 2;
+      if (oddResult === 1) {
+        updatedCounter++;
+      }
+      return {
+        ...state,
+        cards: updatedCards,
+        counter: updatedCounter,
+        localCounter: state.localCounter + 1
+      };
+    case RESET_GAME:
+      shuffle(initialState.cards);
+      let finalCards: Array<object> = [];
+      initialState.cards.map((slot, i) => finalCards.push({ ...slot, id: i }));
+      return {
+        ...initialState,
+        cards: finalCards
+      };
+
     default:
       return state;
   }
