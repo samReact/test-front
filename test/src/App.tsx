@@ -1,14 +1,8 @@
 import React from "react";
-import "./App.css";
-import Apple from "./assets/images/apple.png";
+import Card from "./components/Card";
 
 function App() {
-  return (
-    <div className="App">
-      <span>Hello world !</span>
-      <img src={Apple} />
-    </div>
-  );
+  return <Card />;
 }
 
 export default App;
