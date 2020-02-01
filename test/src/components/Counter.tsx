@@ -1,12 +1,16 @@
 import React from "react";
+import { StyledNumbers, StyledSubtitle } from "../styled/style";
+import "./Counter.css";
 
 const Counter = () => {
   return (
     <div>
-      <div>
-        <span>Clics</span>
+      <div className="container-item">
+        <StyledSubtitle>Clics</StyledSubtitle>
       </div>
-      <span>2</span>
+      <div className="container-item">
+        <StyledNumbers>2</StyledNumbers>
+      </div>
     </div>
   );
 };

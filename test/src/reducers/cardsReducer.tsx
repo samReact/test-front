@@ -28,7 +28,15 @@ const initialState = {
   ]
 };
 
+function shuffle(array: Array<object>) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 const cardsReducer = (state = initialState, action: object) => {
+  shuffle(state.cards);
   return { ...state };
 };
 

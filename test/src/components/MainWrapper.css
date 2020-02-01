@@ -1,0 +1,18 @@
+.item1 {
+  align-self: end;
+}
+
+.item2 {
+  align-self: end;
+  justify-self: end;
+}
+
+.item3 {
+  /* grid-row-start: 2; */
+  align-self: center;
+}
+
+.item4 {
+  grid-row-start: 3;
+  align-self: end;
+}
