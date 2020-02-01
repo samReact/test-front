@@ -1,14 +1,18 @@
 import React from "react";
 import Card from "./components/Card";
 import ResetButton from "./components/ResetButton";
+import Timer from "./components/Timer";
+import Counter from "./components/Counter";
 
-function App() {
+const App = () => {
   return (
     <div>
       <Card />
       <ResetButton />
+      <Timer />
+      <Counter />
     </div>
   );
-}
+};
 
 export default App;
