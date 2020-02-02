@@ -12,6 +12,7 @@ const Card = ({ card }: cardAttributes) => {
   return (
     <StyledCardWrapper
       status={card.status}
+      type="button"
       onClick={() =>
         card.status === "idle"
           ? dispatch({ payload: { id: card.id }, type: UPDATE_CARD_STATUS })

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const StyledCard = styled.img`
-  height: 80px;
-  width: 80px;
+  height: 75px;
+  width: 75px;
   opacity: ${props => {
     switch (props.status) {
       case "idle":
@@ -16,7 +16,7 @@ export const StyledCard = styled.img`
     }
   }};
 `;
-export const StyledCardWrapper = styled.div`
+export const StyledCardWrapper = styled.button`
   background-color: ${props => {
     switch (props.status) {
       case "disabled":
