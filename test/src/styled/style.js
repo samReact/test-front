@@ -40,7 +40,14 @@ export const StyledCardWrapper = styled.button`
   padding: 2px;
   transition: 0.4s;
   &:hover {
-    transform: scale(1.1);
+    transform: ${props => {
+      if (
+        (props.status === "checked" && props.played) ||
+        (props.status === "idle" && !props.played)
+      ) {
+        return "scale(1.1)";
+      }
+    }};
   }
 `;
 

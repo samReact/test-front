@@ -1,5 +1,6 @@
 export const UPDATE_CARD_STATUS = "update.card.status";
 export const RESET_GAME = "reset.game";
+export const RESET_TURN = "reset.turn";
 
 export interface CardId {
   id: number;
@@ -15,6 +16,7 @@ export interface CardState {
   cards: Array<CardItem>;
   counter: number;
   localCounter: number;
+  played: boolean;
 }
 
 interface UpdateCardStatus {
@@ -27,4 +29,9 @@ interface ResetGame {
   payload: null;
 }
 
-export type CardsActionTypes = UpdateCardStatus | ResetGame;
+interface ResetTurn {
+  type: typeof RESET_TURN;
+  payload: null;
+}
+
+export type CardsActionTypes = UpdateCardStatus | ResetGame | ResetTurn;

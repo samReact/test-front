@@ -11,7 +11,8 @@ import {
   UPDATE_CARD_STATUS,
   RESET_GAME,
   CardState,
-  CardItem
+  CardItem,
+  RESET_TURN
 } from "../actions/types/cards.actions.types";
 
 const initialState: CardState = {
@@ -34,7 +35,8 @@ const initialState: CardState = {
     { id: 15, source: Strawberry, status: "idle" }
   ],
   counter: 0,
-  localCounter: 0
+  localCounter: 0,
+  played: false
 };
 
 function shuffle(array: Array<CardItem>) {
@@ -46,9 +48,13 @@ function shuffle(array: Array<CardItem>) {
 
 const cardsReducer = (state = initialState, action: CardsActionTypes) => {
   const { type, payload } = action;
+  let updatedCards;
   switch (type) {
     case UPDATE_CARD_STATUS:
+      let oddResult = state.localCounter % 2;
+      let updatedPlayed = state.played;
       let updatedCounter = state.counter;
+
       let filteredCard = state.cards.filter(card => card.id === payload?.id)[0];
       let filteredCardBis = state.cards.filter(
         card => card.id !== payload?.id && card.source === filteredCard.source
@@ -56,24 +62,26 @@ const cardsReducer = (state = initialState, action: CardsActionTypes) => {
       let filteredCards = state.cards.filter(
         card => card.source !== filteredCard.source
       );
+      if (oddResult === 1) {
+        updatedCounter++;
+        updatedPlayed = true;
+      }
       if (filteredCardBis.status === "checked") {
         filteredCard = { ...filteredCard, status: "disabled" };
         filteredCardBis = { ...filteredCardBis, status: "disabled" };
+        updatedPlayed = false;
       } else {
         filteredCard = { ...filteredCard, status: "checked" };
       }
-      let updatedCards = [...filteredCards, filteredCard, filteredCardBis].sort(
+      updatedCards = [...filteredCards, filteredCard, filteredCardBis].sort(
         (a, b) => a.id - b.id
       );
-      let oddResult = state.localCounter % 2;
-      if (oddResult === 1) {
-        updatedCounter++;
-      }
       return {
         ...state,
         cards: updatedCards,
         counter: updatedCounter,
-        localCounter: state.localCounter + 1
+        localCounter: state.localCounter + 1,
+        played: updatedPlayed
       };
     case RESET_GAME:
       shuffle(initialState.cards);
@@ -82,6 +90,15 @@ const cardsReducer = (state = initialState, action: CardsActionTypes) => {
       return {
         ...initialState,
         cards: finalCards
+      };
+    case RESET_TURN:
+      updatedCards = state.cards.map(card =>
+        card.status === "checked" ? (card = { ...card, status: "idle" }) : card
+      );
+      return {
+        ...state,
+        cards: updatedCards,
+        played: false
       };
     default:
       return state;

@@ -9,7 +9,9 @@ const Timer = () => {
   const [counter, setCounter] = useState(moment().startOf("day"));
 
   const localCounter = useSelector((state: CardState) => state.localCounter);
+  const cards = useSelector((state: CardState) => state.cards);
   const dispatch = useDispatch();
+  let totalDisabledCards = cards.filter(card => card.status === "disabled");
   useEffect(() => {
     if (localCounter > 0 && localCounter <= 1) {
       start();
@@ -18,7 +20,7 @@ const Timer = () => {
       setCounter(moment().startOf("day"));
       stop();
     }
-    if (localCounter === 16) {
+    if (totalDisabledCards.length === 16) {
       setCounter(moment().startOf("day"));
       stop();
       alert(
