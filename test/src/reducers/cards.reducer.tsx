@@ -10,8 +10,9 @@ import {
   CardsActionTypes,
   UPDATE_CARD_STATUS,
   RESET_GAME,
-  CardState
-} from "../actions/types/cards";
+  CardState,
+  CardItem
+} from "../actions/types/cards.actions.types";
 
 const initialState: CardState = {
   cards: [
@@ -36,7 +37,7 @@ const initialState: CardState = {
   localCounter: 0
 };
 
-function shuffle(array: Array<object>) {
+function shuffle(array: Array<CardItem>) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -76,13 +77,12 @@ const cardsReducer = (state = initialState, action: CardsActionTypes) => {
       };
     case RESET_GAME:
       shuffle(initialState.cards);
-      let finalCards: Array<object> = [];
+      let finalCards: Array<CardItem> = [];
       initialState.cards.map((slot, i) => finalCards.push({ ...slot, id: i }));
       return {
         ...initialState,
         cards: finalCards
       };
-
     default:
       return state;
   }

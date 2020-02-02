@@ -1,10 +1,11 @@
 import React from "react";
+
 import { StyledGameWrapper } from "../styled/style";
 import CardsWrapper from "./CardsWrapper";
-import "./MainWrapper.css";
 import Timer from "./Timer";
 import Counter from "./Counter";
 import ResetButton from "./ResetButton";
+import "./MainWrapper.css";
 
 const MainWrapper = () => (
   <StyledGameWrapper>

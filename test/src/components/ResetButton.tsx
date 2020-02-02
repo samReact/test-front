@@ -1,7 +1,8 @@
 import React from "react";
+
 import { StyledResetButton } from "../styled/style";
 import { useDispatch } from "react-redux";
-import { RESET_GAME } from "../actions/types/cards";
+import { RESET_GAME } from "../actions/types/cards.actions.types";
 
 const ResetButton = () => {
   const dispatch = useDispatch();

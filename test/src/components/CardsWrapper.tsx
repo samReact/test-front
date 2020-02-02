@@ -1,24 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
+
 import Card from "./Card";
 import { StyledCardsWrapper } from "../styled/style";
-
-interface CardsState {
-  cardsReducer: Cards;
-}
-
-interface Cards {
-  cards: Array<CardItem>;
-}
-
-interface CardItem {
-  id: number;
-  status: string;
-  source: string;
-}
+import { CardState, CardItem } from "../actions/types/cards.actions.types";
 
 const CardsWrapper = () => {
-  let cards = useSelector((state: CardsState) => state.cardsReducer.cards);
+  let cards = useSelector((state: CardState) => state.cards);
   return (
     <StyledCardsWrapper>
       {cards.map((card: CardItem) => (

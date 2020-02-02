@@ -1,9 +1,9 @@
-import React, { useEffect, Fragment } from "react";
-import MainWrapper from "./MainWrapper";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
+import MainWrapper from "./MainWrapper";
 import "./App.css";
-import { RESET_GAME } from "../actions/types/cards";
+import { RESET_GAME } from "../actions/types/cards.actions.types";
 
 const App = () => {
   const dispatch = useDispatch();

@@ -1,28 +1,14 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
-import { StyledSubtitle, StyledNumbers } from "../styled/style";
-import moment from "moment";
 import { useSelector } from "react-redux";
+import moment from "moment";
 
-interface CardsState {
-  cardsReducer: Cards;
-}
-interface Cards {
-  cards: Array<CardItem>;
-  counter: number;
-  localCounter: number;
-}
-interface CardItem {
-  id: number;
-  status: string;
-  source: string;
-}
+import { StyledSubtitle, StyledNumbers } from "../styled/style";
+import { CardState } from "../actions/types/cards.actions.types";
 
 const Timer = () => {
   const [counter, setCounter] = useState(moment().startOf("day"));
 
-  const localCounter = useSelector(
-    (state: CardsState) => state.cardsReducer.localCounter
-  );
+  const localCounter = useSelector((state: CardState) => state.localCounter);
 
   useEffect(() => {
     if (localCounter > 0 && localCounter <= 1) {

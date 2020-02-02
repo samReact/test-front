@@ -1,14 +1,15 @@
 import React from "react";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 import ReactDOM from "react-dom";
-import "./index.css";
+
 import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
-import { createStore } from "redux";
-import rootReducer from "./reducers/rootReducer";
-import { Provider } from "react-redux";
-import { composeWithDevTools } from "redux-devtools-extension";
+import cardsReducer from "./reducers/cards.reducer";
+import "./index.css";
 
-const store = createStore(rootReducer, composeWithDevTools());
+const store = createStore(cardsReducer, composeWithDevTools());
 
 ReactDOM.render(
   <Provider store={store}>

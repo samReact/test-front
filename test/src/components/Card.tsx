@@ -1,10 +1,12 @@
 import React from "react";
+
 import { StyledCard, StyledCardWrapper } from "../styled/style";
 import { useDispatch } from "react-redux";
-import { UPDATE_CARD_STATUS } from "../actions/types/cards";
+import { UPDATE_CARD_STATUS } from "../actions/types/cards.actions.types";
+import { CardItem } from "../actions/types/cards.actions.types";
 
 interface cardAttributes {
-  card: { id: number; status: string; source: string };
+  card: CardItem;
 }
 
 const Card = ({ card }: cardAttributes) => {
