@@ -61,9 +61,16 @@ export const StyledResetButton = styled.button`
   font-size: 14px;
   transition: 0.4s;
   &:hover {
-    background: #fff;
-    color: rgb(1, 102, 117);
-    font-weight: bold;
+    background: ${props => {
+      if (!props.disabled) {
+        return "#fff";
+      }
+    }};
+    color: ${props => {
+      if (!props.disabled) {
+        return "rgb(1, 102, 117)";
+      }
+    }};
   }
 `;
 
