@@ -1,0 +1,38 @@
+.Modal.overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+
+    background-color: rgba(0, 0, 0, 0.6);
+
+    > .ModalContent {
+        display: flex;
+        flex-direction: column;
+
+        justify-content: flex-start;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        min-height: 300px;
+        padding: 25px;
+
+        transform: translate(-50%, -50%);
+
+        background-color: white;
+        border-radius: 6px;
+
+        > h4 {
+            color: #007d8f;
+            font-weight: 500;
+
+            font-size: 45px;
+            padding-bottom: 20px;
+        }
+
+        > img {
+            padding-bottom: 30px;
+        }
+    }
+}
